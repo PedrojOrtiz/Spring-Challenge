@@ -3,27 +3,20 @@ package ec.nttdata.challenge.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Data
 public class Movimiento implements Serializable {
 
     @Id
-    @GeneratedValue
+    @UuidGenerator
     @Column(name = "movimiento_id")
-    private UUID id;
+    private String id;
 
     @NotNull(message = "Movimiento: cuenta no puede estar vacia")
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)

@@ -2,8 +2,10 @@ package ec.nttdata.challenge.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import lombok.Data;
 
 @Entity
+@Data
 public class Cliente extends Persona {
     
     @Column(name = "cliente_id", unique = true, length = 50)
