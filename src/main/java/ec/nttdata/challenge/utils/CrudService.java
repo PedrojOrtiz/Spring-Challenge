@@ -9,7 +9,7 @@ import java.util.Optional;
 public abstract class CrudService<T, K> {
 
     @Autowired
-    private K dao;
+    protected K dao;
 
     public T save(T t) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         handleSave(t);

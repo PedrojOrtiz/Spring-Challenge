@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
@@ -17,7 +16,6 @@ public class Cuenta implements Serializable {
     @Column(name = "cuenta_id")
     private String id;
 
-    @NotNull(message = "Cuenta: cliente no puede estar vacio")
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "cuenta_cliente_id")
     private Cliente cliente;
