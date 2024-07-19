@@ -17,6 +17,23 @@ services:
       - postgres_db
     links:
       - postgres_db
+  challenge2-app:
+    image: challenge2-app:dev
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+    ports:
+      - "8081:8081"
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/challenge
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "CHALLENGEnttDATA"
+    depends_on:
+      - postgres_db
+    links:
+      - postgres_db
   postgres_db:
     image: "postgres:14.2"
     restart: always
